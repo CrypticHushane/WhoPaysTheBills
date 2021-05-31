@@ -1,0 +1,12 @@
+{
+  "name": "wpb_app",
+  "displayName": "wpb_app",
+  "expo": {
+    "name": "wpb_app",
+    "slug": "wpb_app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
