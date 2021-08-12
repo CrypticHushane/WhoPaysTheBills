@@ -1,14 +1,47 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import { ScrollView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { Image } from 'react-native-elements'; 
+import StageOne from './components/StageOne';
+import StageTwo from './components/StageTwo';
+import { MyContext } from './context';
+import Logo from './assets/logo.png'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+class App extends Component {
+
+  static contextType = MyContext;
+
+ 
+
+  render(){
+      
+    return (
+      <SafeAreaView>
+        <ScrollView >
+          <View style={styles.container}>
+            <Image 
+              source={Logo}
+              style={{
+                width:200,
+                height: 200,
+              }}
+            />
+            <StatusBar style="auto" />
+            {this.context.state.stage === 1?
+              <StageOne />
+              :
+              <StageTwo />
+            }
+            
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+      
+    
+    );
+  }
+  
 }
 
 const styles = StyleSheet.create({
@@ -19,3 +52,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
